@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #004d00, #228B22, #FFD700, #DAA520);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    font-family: 'Amiri', serif;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.background-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.container {
+    animation: fadeIn 3s ease-out;
+    z-index: 2;
+}
+
+.arabic-calligraphy {
+    font-size: 3rem;
+    color: #FFD700;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+    animation: fadeInText 2s ease-in-out;
+}
+
+.message {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.animation-container {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.crescent {
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 30% 30%, #FFD700, #DAA520);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) rotate(25deg);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+.ball {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    animation: bounce 1.5s ease-in-out infinite;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    margin-left: -25px;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-60px); }
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInText {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e6/Islamic_Geometric_Pattern.svg');
+    background-size: contain;
+    opacity: 0.2;
+    z-index: -2;
+}
+
+@keyframes particle {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
+}
+
+.particle {
+    position: absolute;
+    background-color: white;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: particle 5s linear infinite;
+}
+
+@keyframes rain {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.rain-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.rain {
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background: #fff;
+    opacity: 0.8;
+    animation: rain linear infinite;
+}
+
+@keyframes createRain {
+    from { transform: translateY(-100px); }
+    to { transform: translateY(100vh); }
+}
